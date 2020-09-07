@@ -1,0 +1,42 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "corejs": 3
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-syntax-optional-chaining",
+    "@babel/plugin-proposal-optional-chaining",
+    "syntax-dynamic-import",
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./src"
+        ],
+        "alias": {
+          "@atoms": "./src/components/atoms",
+          "@molecules": "./src/components/molecules",
+          "@organisms": "./src/components/organisms",
+          "@templates": "./src/components/templates",
+          "@pages": "./src/pages",
+          "@hoc": "./src/hoc",
+          "@contexts": "./src/contexts",
+          "@hooks": "./src/hooks",
+          "@utils": "./src/utils",
+          "@fonts": "src/assets/fonts",
+          "@styles": "src/assets/styles",
+          "@type": "src/types",
+          "@svg": "src/assets/svg"
+        }
+      }
+    ]
+  ]
+}
