@@ -1,10 +1,6 @@
 import React, { createContext, useContext } from 'react';
 import axios, { AxiosInstance } from 'axios';
-import { BASE_URL, API_KEY } from '@utils/constants';
-
-interface BaseParams {
-  apiKey: string;
-}
+import { BASE_URL } from '@utils/constants';
 
 const request = axios.create({
   baseURL: BASE_URL,
@@ -13,7 +9,6 @@ const request = axios.create({
     'Content-Type': 'application/json',
     Accept: 'application/json',
   },
-  params: { apiKey: API_KEY } as BaseParams,
 });
 
 const AxiosContext = createContext(request);

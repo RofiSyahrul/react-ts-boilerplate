@@ -4,8 +4,9 @@ import {
   useTheme as useBasicTheme,
   DefaultTheme,
 } from 'styled-components';
+import { defaultTheme, Theme } from '@styles/theme';
 
-import { GlobalStyle, defaultTheme, Theme } from '../assets/styles';
+import { GlobalStyle } from '../assets/styles';
 
 export function useTheme(): DefaultTheme {
   return useBasicTheme();

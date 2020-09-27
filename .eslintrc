@@ -69,7 +69,10 @@
     "react/display-name": 0,
     "array-callback-return": 0,
     "consistent-return": 0,
+    "no-case-declarations": "off",
+    "react/jsx-indent": "off",
     "jsx-a11y/label-has-associated-control": "off",
+    "@typescript-eslint/no-unsafe-return": "off",
     "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/restrict-plus-operands": "off",
@@ -106,7 +109,8 @@
           "@fonts": "./src/assets/fonts",
           "@styles": "./src/assets/styles",
           "@type": "./src/types",
-          "@svg": "src/assets/svg"
+          "src/@systems": "./src/@systems",
+          "@svg": "./src/assets/svg"
         }
       },
       "webpack": {

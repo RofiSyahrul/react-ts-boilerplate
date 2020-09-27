@@ -6,7 +6,8 @@
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --config config/webpack.config.ts --host 0.0.0.0 --env.env=dev",
     "build": "NODE_ENV=production BUILD_ENV=prod webpack --config config/webpack.config.ts --env.env=prod",
-    "build:local": "NODE_ENV=production BUILD_ENV=local webpack --config config/webpack.config.ts --env.env=prod"
+    "build:local": "NODE_ENV=production BUILD_ENV=local webpack --config config/webpack.config.ts --env.env=prod",
+    "commit": "cz"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   "bugs": {
     "url": "https://github.com/RofiSyahrul/react-ts-boilerplate/issues"
   },
+  "sideEffects": false,
   "homepage": "https://github.com/RofiSyahrul/react-ts-boilerplate#readme",
   "devDependencies": {
     "@babel/core": "^7.11.1",
@@ -33,6 +35,8 @@
     "@babel/plugin-syntax-optional-chaining": "^7.8.3",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@types/compression-webpack-plugin": "^4.0.0",
     "@types/copy-webpack-plugin": "^6.0.0",
     "@types/dotenv-webpack": "^1.8.0",
@@ -53,9 +57,11 @@
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-react-app": "^9.1.2",
     "clean-webpack-plugin": "^3.0.0",
+    "commitizen": "^4.2.1",
     "compression-webpack-plugin": "^4.0.1",
     "copy-webpack-plugin": "^6.0.3",
     "core-js": "^3.6.5",
+    "cz-conventional-changelog": "^3.3.0",
     "dotenv-webpack": "^2.0.0",
     "eslint": "^7.6.0",
     "eslint-config-airbnb": "^18.2.0",
@@ -72,6 +78,8 @@
     "eslint-plugin-react-hooks": "^4.0.8",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
     "preload-webpack-plugin": "^3.0.0-beta.4",
     "prettier": "^2.0.5",
     "terser-webpack-plugin": "^4.1.0",
@@ -88,12 +96,35 @@
     "workbox-webpack-plugin": "^5.1.3"
   },
   "dependencies": {
+    "@styled-system/core": "^5.1.2",
     "axios": "^0.19.2",
-    "csstype": "^3.0.2",
+    "csstype": "^3.0.3",
     "immer": "^7.0.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "styled-components": "^5.1.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

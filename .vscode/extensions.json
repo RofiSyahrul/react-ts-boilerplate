@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode",
+    "jpoissonnier.vscode-styled-components",
+    "salbert.comment-ts",
+    "dbaeumer.vscode-eslint",
+    "bierner.jsdoc-markdown-highlighting",
+    "stkb.rewrap",
+    "pkief.material-icon-theme"
+  ]
+}

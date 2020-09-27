@@ -38,6 +38,9 @@
       "@type/*": [
         "src/types/*"
       ],
+      "src/@systems/*": [
+        "src/@systems/*"
+      ],
       "@svg/*": [
         "src/assets/svg/*"
       ]

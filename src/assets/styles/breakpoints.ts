@@ -8,7 +8,3 @@ export const breakpoints = {
 };
 
 export type Breakpoint = keyof typeof breakpoints;
-
-export type InBreakpoint<CssType, P extends Breakpoint = Breakpoint> =
-  | CssType
-  | Partial<Pick<{ [key in Breakpoint]: CssType }, P>>;
