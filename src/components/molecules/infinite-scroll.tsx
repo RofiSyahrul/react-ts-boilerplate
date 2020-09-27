@@ -1,6 +1,5 @@
 import React, { useEffect, createRef, useState } from 'react';
-import { Div } from '@atoms/basics';
-import { CssHtmlProps } from '@utils/map-css-props';
+import { Div, DivProps } from '@atoms/basics';
 
 interface InfiniteScrollHookProps {
   next?(): Promise<void>;
@@ -44,7 +43,7 @@ function useInfiniteScroll({
   return { scrollTarget, isLoading };
 }
 
-interface InfiniteScrollProps extends InfiniteScrollHookProps, CssHtmlProps {
+interface InfiniteScrollProps extends InfiniteScrollHookProps, DivProps {
   loader?: React.ReactNode;
 }
 
@@ -58,7 +57,7 @@ const InfiniteScroll: React.FC<InfiniteScrollProps> = ({
   const { scrollTarget, isLoading } = useInfiniteScroll({ next, hasMore });
 
   return (
-    <Div ref={scrollTarget} className='scroll' maxH='600px' {...props}>
+    <Div ref={scrollTarget} customScrollbar maxH='600px' {...props}>
       {children}
       {isLoading && (
         <Div w='100%' fAlign='center' p='8px'>

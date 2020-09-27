@@ -31,10 +31,11 @@
           "@contexts": "./src/contexts",
           "@hooks": "./src/hooks",
           "@utils": "./src/utils",
-          "@fonts": "src/assets/fonts",
-          "@styles": "src/assets/styles",
-          "@type": "src/types",
-          "@svg": "src/assets/svg"
+          "@fonts": "./src/assets/fonts",
+          "@styles": "./src/assets/styles",
+          "@type": "./src/types",
+          "src/@systems": "./src/@systems",
+          "@svg": "./src/assets/svg"
         }
       }
     ]

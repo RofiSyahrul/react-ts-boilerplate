@@ -1,6 +1,7 @@
 {
   "name": "Boilerplate ρπ",
   "short_name": "Boilerplate ρπ",
+  "description": "React app boilerplate by Rofi: typescript, webpack, and CSS in JS",
   "version": "1.0.0",
   "start_url": ".",
   "display": "standalone",

@@ -1,8 +1,24 @@
 import { createGlobalStyle } from 'styled-components';
+import { ScrollbarProps, scrollbarWithPrefix } from 'src/@systems/scrollbar';
 import fontFace from './font-face';
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle<ScrollbarProps>`
   ${fontFace}
+
+  html {
+    font-size: 14px;
+    ${({ theme }) => `
+      ${theme.breakpoint('md')} {
+        font-size: 14.5px;
+      }
+      ${theme.breakpoint('lg')} {
+        font-size: 15px;
+      }
+      ${theme.breakpoint('xl')} {
+        font-size: 16px;
+      }
+    `}
+  }
 
   *,
   *::before,
@@ -36,7 +52,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0px;
     width: 100%;
     padding: 0px auto;
-    background: ${props => props.theme.colors.background};
+    background: ${props => props.theme.colors.black0};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -66,20 +82,7 @@ export const GlobalStyle = createGlobalStyle`
     border: none;
   }
 
-  .scroll::-webkit-scrollbar-track {
-    width: 6px;
-    border-radius: 3px;
-    background-color: ${props => props.theme.colors.white};
-  }
-  .scroll::-webkit-scrollbar {
-    width: 6px;
-  }
-  .scroll::-webkit-scrollbar-thumb {
-    width: 6px;
-    height: 20%;
-    border-radius: 3px;
-    background-color: ${props => props.theme.colors.primary};
-  }
+  ${scrollbarWithPrefix('.scroll')}
 
   *:focus {
     outline: none;
@@ -104,5 +107,3 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 `;
-
-export * from './theme';

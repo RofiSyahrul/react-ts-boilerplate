@@ -9,7 +9,10 @@
     <meta name="theme-color" content="#4aabc5" />
     <meta
       name="description"
-      content="Generator untuk rekapitulasi tabungan di YPI Wasilatunnaja"
+      content="React app boilerplate by Rofi. Use typescript as programming language,
+      webpack as script bundler, styled-components as CSS in JS library, and
+      @styled-system/core as system to create custom and robust props of CSS
+      properties"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="shortcut icon" href="./rho-pi.ico" />
@@ -17,17 +20,41 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
 
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="application-name" content="Rekap Tabungan Generator" />
+    <meta name="application-name" content="Boilerplate ρπ"" />
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <base href="/" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="apple-mobile-web-app-title" content="Rekap Tabungan Generator" />
+    <meta name="apple-mobile-web-app-title" content="Boilerplate ρπ"" />
     <link rel="apple-touch-icon" href="./rho-pi.ico" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="React app boilerplate by Rofi: typescript, webpack, and CSS in JS"
+    />
+    <meta
+      property="og:image"
+      content="https://avatars1.githubusercontent.com/u/44445726?s=460&u=7226c3b6d6e2d2163dd0eab652c20aaba6775755&v=4"
+    />
+    <meta
+      property="og:description"
+      content="React app boilerplate by Rofi. Use typescript as programming language,
+      webpack as script bundler, styled-components as CSS in JS library, and
+      @styled-system/core as system to create custom and robust props of CSS
+      properties"
+    />
   </head>
-  <body>
+  <body class="scroll content">
     <div id="modal"></div>
-    <div id="app"></div>
+    <div id="app" class="content">
+      <p style="display: none;">
+        React app boilerplate by Rofi. Use typescript as programming language,
+        webpack as script bundler, styled-components as CSS in JS library, and
+        @styled-system/core as system to create custom and robust props of CSS
+        properties
+      </p>
+    </div>
     <noscript>
       <div
         style="
@@ -50,13 +77,6 @@
           Klik disini untuk mengetahui cara mengaktifkan javascript
         </a>
       </div>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-N5RN3J6"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden;"
-      >
-      </iframe>
     </noscript>
   </body>
 </html>

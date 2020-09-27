@@ -5,7 +5,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import WorkboxPlugin from 'workbox-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 
-const isLocalBuild = /local/i.test(process.env.BUILD_ENV);
+const isLocalBuild = /local/i.test(process.env.BUILD_ENV || '');
 
 const compressionPlugin = new WebpackCompression({
   filename(info) {

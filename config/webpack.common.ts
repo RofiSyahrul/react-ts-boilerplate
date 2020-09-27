@@ -67,6 +67,7 @@ const commonConfig: webpack.Configuration = {
       '@fonts': getSrcChildPath('assets/fonts'),
       '@svg': getSrcChildPath('assets/svg'),
       '@styles': getSrcChildPath('assets/styles'),
+      'src/@systems': getSrcChildPath('@systems'),
       '@img': getSrcChildPath('assets/images'),
     },
   },
@@ -74,7 +75,7 @@ const commonConfig: webpack.Configuration = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      title: 'Boilerplate ρπ',
+      title: 'ρπ | React app boilerplate: TS, webpack, and CSS in JS',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -82,6 +83,7 @@ const commonConfig: webpack.Configuration = {
         minifyJS: true,
       },
     }),
+    new webpack.DefinePlugin({ __DEV__: process.env.NODE_ENV === 'development' }),
     new PreloadWebpackPlugin({ rel: 'preload', include: 'initial' }),
     new Dotenv({ path: './.env', systemvars: true, expand: true }),
   ],

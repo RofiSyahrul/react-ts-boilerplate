@@ -9,12 +9,15 @@ declare module 'preload-webpack-plugin' {
   export default PreloadWebpackPlugin;
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
+declare const __DEV__: boolean;
+
 declare namespace NodeJS {
-  export interface ProcessEnv {
-    NODE_ENV: string;
-    BUILD_ENV: string;
+  interface ProcessEnv {
+    NODE_ENV: 'development' | 'production';
+    BUILD_ENV: 'local' | 'prod';
     BASE_URL: string;
-    API_KEY: string;
+    BASE_IMAGE_URL: string;
   }
 }
 
