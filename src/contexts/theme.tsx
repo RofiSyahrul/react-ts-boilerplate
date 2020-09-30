@@ -5,11 +5,10 @@ import {
   DefaultTheme,
 } from 'styled-components';
 import { defaultTheme, Theme } from '@styles/theme';
-
-import { GlobalStyle } from '../assets/styles';
+import { GlobalStyle } from '@styles/global-style';
 
 export function useTheme(): DefaultTheme {
-  return useBasicTheme();
+  return useBasicTheme() || defaultTheme;
 }
 
 export const ThemeProvider: React.FC<{ theme?: Theme }> = ({

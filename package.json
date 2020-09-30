@@ -4,9 +4,9 @@
   "description": "Boilerplate for React Typescript by Rofi",
   "main": "dist/index.html",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --config config/webpack.config.ts --host 0.0.0.0 --env.env=dev",
-    "build": "NODE_ENV=production BUILD_ENV=prod webpack --config config/webpack.config.ts --env.env=prod",
-    "build:local": "NODE_ENV=production BUILD_ENV=local webpack --config config/webpack.config.ts --env.env=prod",
+    "start": "NODE_ENV=development TS_NODE_PROJECT=tsconfig.webpack.json webpack-dev-server --config config/webpack.config.ts --host 0.0.0.0 --env.env=dev",
+    "build": "NODE_ENV=production BUILD_ENV=prod TS_NODE_PROJECT=tsconfig.webpack.json webpack --config config/webpack.config.ts --env.env=prod",
+    "build:local": "NODE_ENV=production BUILD_ENV=local TS_NODE_PROJECT=tsconfig.webpack.json webpack --config config/webpack.config.ts --env.env=prod",
     "commit": "cz"
   },
   "repository": {

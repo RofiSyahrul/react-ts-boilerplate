@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import * as webpack from 'webpack';
+import { Configuration, DefinePlugin } from 'webpack';
 import path from 'path';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -17,7 +17,7 @@ function getSrcChildPath(childPath: string): string {
   return path.resolve(srcPath, normalized);
 }
 
-const commonConfig: webpack.Configuration = {
+const commonConfig: Configuration = {
   entry: ['./src/index.tsx'],
   module: {
     rules: [
@@ -83,7 +83,7 @@ const commonConfig: webpack.Configuration = {
         minifyJS: true,
       },
     }),
-    new webpack.DefinePlugin({ __DEV__: process.env.NODE_ENV === 'development' }),
+    new DefinePlugin({ __DEV__: process.env.NODE_ENV === 'development' }),
     new PreloadWebpackPlugin({ rel: 'preload', include: 'initial' }),
     new Dotenv({ path: './.env', systemvars: true, expand: true }),
   ],

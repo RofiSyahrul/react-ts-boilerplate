@@ -7,4 +7,5 @@ export * from './layout';
 export * from './motion';
 export * from './palette';
 export * from './scrollbar';
+export * from './svg';
 export * from './typography';

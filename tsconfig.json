@@ -46,7 +46,7 @@
       ]
     },
     "outDir": "dist",
-    "module": "CommonJS",
+    "module": "ESNext",
     "resolveJsonModule": true,
     "target": "ES5",
     "lib": [
@@ -73,6 +73,7 @@
     "noImplicitThis": true,
     "strict": true,
     "esModuleInterop": true,
+    "removeComments": false,
     "typeRoots": [
       "./@types",
       "./node_modules/@types"

@@ -16,6 +16,7 @@ import {
   DisplayProps,
   TransitionProps,
   ScrollbarProps,
+  SvgSystemProps,
   border,
   flexbox,
   grid,
@@ -31,6 +32,8 @@ import {
   display,
   transition,
   scrollbar,
+  svg,
+  getAnimationName,
 } from 'src/@systems';
 
 interface HoverProps extends BorderProps, ColorProps, TransformProps, LayoutProps {}
@@ -61,7 +64,7 @@ const divStyleFn = compose(
 
 const hoverStyleFn = compose(border, color, transform, layout);
 
-export const Div = styled.div<DivStyledProps>(
+const BaseDiv = styled.div<Omit<DivStyledProps, 'aName'>>(
   ({
     hoverProps = {},
     d = 'flex',
@@ -92,6 +95,10 @@ export const Div = styled.div<DivStyledProps>(
     return merge(baseStyle, customStyle);
   }
 );
+
+export const Div = styled(BaseDiv)<DivStyledProps>`
+  ${getAnimationName}
+`;
 
 export interface TextStyledProps
   extends TypographyProps,
@@ -166,6 +173,11 @@ export const BackdropContainer = styled.div<BackdropStyledProps>(
   }
 );
 
+export type BackdropProps = StyledComponentPropsWithAs<
+  'div',
+  Omit<BackdropStyledProps, 'isOpen'>
+>;
+
 export const Backdrop = styled.div<Omit<BackdropStyledProps, 'isOpen'>>(
   ({
     d = 'flex',
@@ -178,3 +190,11 @@ export const Backdrop = styled.div<Omit<BackdropStyledProps, 'isOpen'>>(
     ...props
   }) => backdropStyleFn({ d, pos, top, left, w, h, bg, ...props })
 );
+
+export type SvgProps = StyledComponentPropsWithAs<'svg', SvgSystemProps>;
+
+export const Svg = styled(styled.svg<Omit<SvgSystemProps, 'aName'>>(svg))<
+  SvgSystemProps
+>`
+  ${getAnimationName}
+`;
