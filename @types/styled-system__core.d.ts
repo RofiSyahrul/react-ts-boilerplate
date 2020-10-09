@@ -42,7 +42,8 @@ declare module '@styled-system/core' {
   export interface StyleFnBase<P extends Record<string, any>> {
     (props: Partial<P>): CSSObject | undefined;
     readonly config?: SxFn<P>;
-    readonly propNames?: (keyof P)[];
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    readonly propNames?: (keyof P | (string & {}))[];
     readonly cache?: { breakpoints?: Theme['breakpoints']; media?: string[] };
   }
 

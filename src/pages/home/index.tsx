@@ -1,6 +1,7 @@
 import React from 'react';
 import { Div, Text } from '@atoms/basics';
 import { useAxiosGet } from '@hooks/axios';
+import Spinner from '@atoms/spinner';
 
 const Home: React.FC = () => {
   const { data, loading, error } = useAxiosGet({
@@ -23,7 +24,7 @@ const Home: React.FC = () => {
         tAlign={data ? 'left' : 'center'}
       >
         {loading ? (
-          'Loading....'
+          <Spinner />
         ) : error ? (
           error.message
         ) : (

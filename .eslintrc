@@ -76,6 +76,8 @@
     "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/restrict-plus-operands": "off",
+    "@typescript-eslint/unbound-method": "off",
+    "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/no-var-requires": "off"
   },
   "settings": {
@@ -113,10 +115,10 @@
           "@svg": "./src/assets/svg"
         }
       },
-      "webpack": {
-        "config": "./config/webpack.common.ts"
-      },
-      "typescript": {}
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
     }
   }
 }

@@ -1,4 +1,5 @@
 import { Property as Css } from 'csstype';
+import { css, FlattenSimpleInterpolation, Keyframes } from 'styled-components';
 import {
   system,
   ResponsiveValue,
@@ -24,13 +25,12 @@ export interface TransitionProps {
 }
 
 export interface AnimationProps {
-  animation?: ResponsiveValue<Css.Animation>;
   aDelay?: ResponsiveValue<Css.AnimationDelay | number>;
   aDir?: ResponsiveValue<Css.AnimationDirection>;
   aDuration?: ResponsiveValue<Css.AnimationDuration | number>;
   aFillMode?: ResponsiveValue<Css.AnimationFillMode | number>;
   aIterCount?: ResponsiveValue<Css.AnimationIterationCount>;
-  aName?: ResponsiveValue<Css.AnimationName>;
+  aName?: Keyframes | Css.AnimationName;
   aPlayState?: ResponsiveValue<Css.AnimationPlayState>;
   aTimingFunc?: ResponsiveValue<Css.AnimationTimingFunction>;
 }
@@ -57,16 +57,21 @@ export const transition = system<TransitionProps>({
   tTimingFunc: { property: 'transitionTimingFunction' },
 });
 
-export const animation = system<AnimationProps>({
-  animation: true,
+export const animation = system<Omit<AnimationProps, 'aName'>>({
   aDelay: { property: 'animationDelay', transform: getTime },
   aDir: { property: 'animationDirection' },
   aDuration: { property: 'animationDuration', transform: getTime },
   aFillMode: { property: 'animationFillMode' },
   aIterCount: { property: 'animationIterationCount' },
-  aName: { property: 'animationName' },
   aPlayState: { property: 'animationPlayState' },
   aTimingFunc: { property: 'animationTimingFunction' },
 });
+
+export const getAnimationName = ({
+  aName,
+}: Pick<AnimationProps, 'aName'>): FlattenSimpleInterpolation =>
+  css`
+    animation-name: ${aName};
+  `;
 
 export const motion = compose<MotionProps>(transform, transition, animation);

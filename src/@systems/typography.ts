@@ -31,6 +31,9 @@ export interface TypographyProps {
   fLh?: ResponsiveValue<Css.LineHeight>;
   fLs?: ResponsiveValue<Css.LetterSpacing>;
   fStyle?: ResponsiveValue<Css.FontStyle>;
+  fSizeAdjust?: ResponsiveValue<Css.FontSizeAdjust>;
+  fStretch?: ResponsiveValue<Css.FontStretch>;
+  fVariant?: ResponsiveValue<Css.FontVariant>;
   tAlign?: ResponsiveValue<Css.TextAlign>;
   tDecoration?: ResponsiveValue<Css.TextDecoration>;
   tOverflow?: ResponsiveValue<Css.TextOverflow>;
@@ -42,6 +45,8 @@ export interface TypographyProps {
   tEmphasisC?: ResponsiveValue<Css.TextEmphasisColor | ColorName>;
   tEmphasisPos?: ResponsiveValue<TextEmphasisPos | Css.TextEmphasisPosition>;
   tEmphasisS?: ResponsiveValue<Css.TextEmphasisStyle>;
+  tAnchor?: ResponsiveValue<Css.TextAnchor>;
+  tRendering?: ResponsiveValue<Css.TextRendering>;
   wordSpacing?: ResponsiveValue<Css.WordSpacing>;
   wordWrap?: ResponsiveValue<Css.WordWrap>;
   wordBreak?: ResponsiveValue<Css.WordBreak>;
@@ -68,6 +73,9 @@ export const typography = system<TypographyProps>({
   fLh: { property: 'lineHeight' },
   fLs: { property: 'letterSpacing' },
   fStyle: { property: 'fontStyle' },
+  fSizeAdjust: { property: 'fontSizeAdjust' },
+  fStretch: { property: 'fontStretch' },
+  fVariant: { property: 'fontVariant' },
   tAlign: { property: 'textAlign' },
   tDecoration: { property: 'textDecoration' },
   tOverflow: { property: 'textOverflow' },
@@ -85,6 +93,8 @@ export const typography = system<TypographyProps>({
     properties: ['textEmphasisPosition', 'WebkitTextEmphasisPosition'],
   },
   tEmphasisS: { properties: ['textEmphasisStyle', 'WebkitTextEmphasisStyle'] },
+  tAnchor: { property: 'textAnchor' },
+  tRendering: { property: 'textRendering' },
   wordBreak: { properties: ['wordBreak', 'msWordBreak'] },
   wordSpacing: true,
   wordWrap: true,

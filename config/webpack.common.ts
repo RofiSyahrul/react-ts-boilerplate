@@ -5,8 +5,7 @@ import path from 'path';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import Dotenv from 'dotenv-webpack';
-
-const PreloadWebpackPlugin = require('preload-webpack-plugin');
+import PreloadWebpackPlugin from 'preload-webpack-plugin';
 
 const context = path.resolve(__dirname, '..');
 const srcPath = path.resolve(__dirname, '../src');
