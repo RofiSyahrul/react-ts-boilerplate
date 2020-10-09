@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { Configuration, DefinePlugin } from 'webpack';
+import * as webpack from 'webpack';
 import path from 'path';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import Dotenv from 'dotenv-webpack';
-
-const PreloadWebpackPlugin = require('preload-webpack-plugin');
+import PreloadWebpackPlugin from 'preload-webpack-plugin';
 
 const context = path.resolve(__dirname, '..');
 const srcPath = path.resolve(__dirname, '../src');
@@ -17,7 +16,7 @@ function getSrcChildPath(childPath: string): string {
   return path.resolve(srcPath, normalized);
 }
 
-const commonConfig: Configuration = {
+const commonConfig: webpack.Configuration = {
   entry: ['./src/index.tsx'],
   module: {
     rules: [
@@ -83,7 +82,7 @@ const commonConfig: Configuration = {
         minifyJS: true,
       },
     }),
-    new DefinePlugin({ __DEV__: process.env.NODE_ENV === 'development' }),
+    new webpack.DefinePlugin({ __DEV__: process.env.NODE_ENV === 'development' }),
     new PreloadWebpackPlugin({ rel: 'preload', include: 'initial' }),
     new Dotenv({ path: './.env', systemvars: true, expand: true }),
   ],
