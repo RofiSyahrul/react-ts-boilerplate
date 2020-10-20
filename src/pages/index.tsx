@@ -4,7 +4,7 @@ import Spinner from '@atoms/spinner';
 
 const Home = lazy(() => import(/* webpackChunkName: "page-home" */ './home'));
 const NotFound = lazy(
-  () => import(/* webpackChunkName: "page-404" */ './error/404')
+  () => import(/* webpackChunkName: "page-404" */ './error/not-found')
 );
 
 const Pages: React.FC = () => {
